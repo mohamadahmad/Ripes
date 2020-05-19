@@ -5,7 +5,8 @@
 
 namespace Ripes {
 
-// Definitions of the name of all settings within Ripes
+// =========== Definitions of the name of all settings within Ripes ============
+// User-modifyable settings
 #define RIPES_SETTING_REWINDSTACKSIZE ("simulator_rewindstacksize")
 #define RIPES_SETTING_CCPATH ("compiler_path")
 #define RIPES_SETTING_CCARGS ("compiler_args")
@@ -13,15 +14,23 @@ namespace Ripes {
 #define RIPES_SETTING_CONSOLEBG ("console_bg_color")
 #define RIPES_SETTING_CONSOLEFONT ("console_font_color")
 
-// Definitions of all default settings within Ripes
+// Program state preserving settings
+#define RIPES_SETTING_APP_TAB ("app_tab")
+#define RIPES_SETTING_SETTING_TAB ("settings_tab")
+
+// ============= Definitions of all default settings within Ripes ==============
 const static std::map<QString, QVariant> s_defaultSettings = {
+    // User-modifyable settings
     {RIPES_SETTING_REWINDSTACKSIZE, 100},
     {RIPES_SETTING_CCPATH, ""},
     {RIPES_SETTING_CCARGS, "-O0"},
     {RIPES_SETTING_CONSOLEECHO, "true"},
     {RIPES_SETTING_CONSOLEBG, QColor(Qt::white)},
     {RIPES_SETTING_CONSOLEFONT, QColor(Qt::black)},
-};
+
+    // Program state preserving settings
+    {RIPES_SETTING_APP_TAB, 1 /* Processor */},
+    {RIPES_SETTING_SETTING_TAB, 0}};
 
 /**
  * @brief The SettingObserver class
