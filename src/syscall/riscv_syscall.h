@@ -5,7 +5,6 @@
 
 // Syscall headers
 #include "control.h"
-#include "file.h"
 #include "print.h"
 
 namespace Ripes {
@@ -48,13 +47,6 @@ public:
         // Control syscalls
         emplace<ExitSyscall<RISCVSyscall>>(ISAInfo<ISA::RV32IM>::Exit);
         emplace<Exit2Syscall<RISCVSyscall>>(ISAInfo<ISA::RV32IM>::Exit2);
-
-        // File syscalls
-        emplace<CloseSyscall<RISCVSyscall>>(ISAInfo<ISA::RV32IM>::Close);
-        emplace<LSeekSyscall<RISCVSyscall>>(ISAInfo<ISA::RV32IM>::LSeek);
-        emplace<ReadSyscall<RISCVSyscall>>(ISAInfo<ISA::RV32IM>::Read);
-        emplace<OpenSyscall<RISCVSyscall>>(ISAInfo<ISA::RV32IM>::Open);
-        emplace<WriteSyscall<RISCVSyscall>>(ISAInfo<ISA::RV32IM>::Write);
     }
 };
 
